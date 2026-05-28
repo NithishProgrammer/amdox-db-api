@@ -35,7 +35,10 @@ def get_db():
         db.close()
 
 # Logic: Fetch all employees from the database
-
+@app.get("/")
+def themain():
+    return {"Message" : "Welcome to Amdox API, You can Visit the Docs of the API for" , "Developer" : "Nithish (Group 1) (2month intern)"}
+    
 @app.post("/register/", response_model=UserResponse)
 def register(user_data: UserCreate, db: Session = Depends(get_db)):
     # 1. Logic: Check for existing username to prevent duplicates
